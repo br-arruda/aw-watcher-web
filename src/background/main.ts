@@ -8,6 +8,7 @@ import {
 } from './heartbeat'
 import { getClient, detectHostname, loadApiKey } from './client'
 import { getIsConsentRequired, installAction } from './consent'
+import { startVivaldiSpike } from './vivaldiSpike'
 import {
   getConsentStatus,
   getHostname,
@@ -92,6 +93,7 @@ clientReady
   )
   .then(waitForEnabled)
   .then(() => sendInitialHeartbeat(client))
+  .then(() => startVivaldiSpike(client))
   .then(() => console.info('Started successfully'))
   .catch((err) => console.error('Failed to initialize extension:', err))
 

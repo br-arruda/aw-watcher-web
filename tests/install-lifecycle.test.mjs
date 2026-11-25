@@ -100,6 +100,7 @@ async function install({ reason, enabled, consent, requireConsent, managed }) {
             },
         },
         './consent': loadSource('background/consent.ts', {}),
+        './vivaldiSpike': { startVivaldiSpike() {} },
         '../storage': storage,
     })
     for (const listener of listeners) await listener({ reason })
